@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvnubxrmlfwdx"]
+
+[ext_resource type="AudioStream" uid="uid://dpverukfveox" path="res://resources/rain_particles/rain_sound.wav" id="1_jgfx1"]
+
+[sub_resource type="Gradient" id="Gradient_54e86"]
+offsets = PackedFloat32Array(0, 0.336066)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tm4nw"]
+gradient = SubResource("Gradient_54e86")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ireh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 1, 1)
+spread = 5.0
+gravity = Vector3(-20, 98, 0)
+linear_accel_min = 1000.0
+linear_accel_max = 1000.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_tm4nw")
+
+[node name="Rain" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 2
+position = Vector2(654, -77)
+amount = 2000
+process_material = SubResource("ParticleProcessMaterial_0ireh")
+lifetime = 4.0
+preprocess = 2.0
+visibility_rect = Rect2(-700, 0, 1400, 800)
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jgfx1")
+autoplay = true
+bus = &"SFX"

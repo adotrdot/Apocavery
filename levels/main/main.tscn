@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcplpg1s4o2ah"]
+
+[ext_resource type="PackedScene" uid="uid://cloe6wr0xkn54" path="res://resources/map/map.tscn" id="1_wfnbh"]
+[ext_resource type="PackedScene" uid="uid://bvnubxrmlfwdx" path="res://resources/rain_particles/rain.tscn" id="2_d2ddc"]
+[ext_resource type="PackedScene" uid="uid://gi86s1w4q3it" path="res://resources/player/player.tscn" id="2_ssq52"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_wfnbh")]
+
+[node name="Rain" parent="Map" instance=ExtResource("2_d2ddc")]
+
+[node name="Player" parent="." instance=ExtResource("2_ssq52")]
+position = Vector2(180, 314)
