@@ -31,7 +31,7 @@ func _ready():
 				self.recipients.append(child)
 				
 	## Sets max packages to the amount of recipients
-	self.max_packages = 4
+	self.max_packages = self.recipients.size()
 	self.package_to_deliver.resize(self.max_packages)
 	
 	## Prepare delivery

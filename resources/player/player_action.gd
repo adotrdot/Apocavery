@@ -31,7 +31,7 @@ func change_rotation(direction: Vector2):
 func pickup():
 	## Checks if area overlaps with truck
 	for area in self.get_overlapping_areas():
-		if area.name == "PackageArea":
+		if area.name == "TruckPackageArea":
 			## Gets package from truck
 			var package: Package = area.get_parent().stored_package
 			self.get_parent().cur_package = package

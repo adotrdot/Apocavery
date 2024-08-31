@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp321bw71tk4c"]
+
+[ext_resource type="Script" path="res://resources/recipients/recipient.gd" id="1_8v6iw"]
+[ext_resource type="TileSet" uid="uid://bsrug1l1o8v2e" path="res://resources/map/tilemap.tres" id="1_daibe"]
+
+[node name="BaseRecipient" type="Node2D"]
+script = ExtResource("1_8v6iw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite" type="TileMap" parent="."]
+tile_set = ExtResource("1_daibe")
+format = 2
+
+[node name="RecipientPackageArea" type="Area2D" parent="."]
+collision_layer = 4

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbrdl8x1hj25l"]
+
+[ext_resource type="PackedScene" uid="uid://dp321bw71tk4c" path="res://resources/recipients/base_recipient.tscn" id="1_ltv77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0uy8"]
+size = Vector2(32, 20)
+
+[node name="Recipient1" instance=ExtResource("1_ltv77")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(48, 0, 97, 31, 97, 192, 89, 192, 89, 189, 75, 189, 64, 178, 64, 172, 32, 172, 32, 178, 21, 189, 6, 189, 6, 192, -1, 192, -1, 31)
+
+[node name="Sprite" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(0, 524288, 16, 65536, 524288, 17, 131072, 524288, 18, 196608, 524288, 19, 262144, 524288, 20, 327680, 524288, 21, 1, 589824, 16, 65537, 589824, 17, 131073, 589824, 18, 196609, 589824, 19, 262145, 589824, 20, 327681, 589824, 21, 2, 655360, 16, 65538, 655360, 17, 131074, 655360, 18, 196610, 655360, 19, 262146, 655360, 20, 327682, 655360, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecipientPackageArea" index="0"]
+position = Vector2(48, 170)
+shape = SubResource("RectangleShape2D_e0uy8")

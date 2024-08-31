@@ -2,6 +2,7 @@ extends Node2D
 
 ## Class for truck
 ## Truck can store ONE package at a time.
+## Also handles indicator.
 
 ## Stores package
 var stored_package: Package

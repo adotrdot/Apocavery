@@ -1,0 +1,12 @@
+extends Node2D
+
+## Class for a recipient
+## Holds the desired package and handles indicator
+
+## Stores the desired package
+var desired_package: Package
+
+
+## Sets desired package
+func call_for_package(package: Package):
+	self.desired_package = package
