@@ -17,6 +17,9 @@ var movement: PlayerMovement
 ## Holds the package that's the character's carrying
 var cur_package: Package = null
 
+## Signal for whenever a package is successfully delivered
+signal package_delivered(package: Package)
+
 func _ready():
 	## Instantiate character's movement
 	self.movement = PlayerMovement.new(self.speed)

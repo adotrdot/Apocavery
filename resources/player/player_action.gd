@@ -14,8 +14,18 @@ const ROTATIONS = {
 
 ## Handles input
 func handle_input():
-	if Input.is_action_just_pressed("pickup"):
-		self.pickup()
+	if Input.is_action_just_pressed("action"):
+		## Return if area doesn't overlap with anything
+		if not self.has_overlapping_areas():
+			return
+			
+		## Checks if overlaps with truck/recipient
+		for area in self.get_overlapping_areas():
+			match area.name:
+				"TruckPackageArea":
+					self.pickup(area.get_parent())
+				"RecipientPackageArea":
+					self.deliver_to(area.get_parent())
 
 
 ## Sets action collision rotation based on direction
@@ -28,10 +38,20 @@ func change_rotation(direction: Vector2):
 	
 	
 ## Picks up package from truck
-func pickup():
-	## Checks if area overlaps with truck
-	for area in self.get_overlapping_areas():
-		if area.name == "TruckPackageArea":
-			## Gets package from truck
-			var package: Package = area.get_parent().stored_package
-			self.get_parent().cur_package = package
+func pickup(truck: Node2D):
+	## Gets package from truck
+	self.get_parent().cur_package = truck.stored_package
+
+
+## Delivers package to recipient
+func deliver_to(recipient: Node2D):
+	var parent = self.get_parent()
+	## Returns if character isn't carrying any package
+	if parent.cur_package == null:
+		return
+	
+	## Gets recipient's desired package
+	if parent.cur_package.type == recipient.desired_package.type:
+		## Change current package to null and emit delivered signal
+		parent.package_delivered.emit(parent.cur_package)
+		parent.cur_package = null

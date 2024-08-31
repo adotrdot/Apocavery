@@ -4,7 +4,7 @@ extends Node2D
 ## Holds the desired package and handles indicator
 
 ## Stores the desired package
-var desired_package: Package
+var desired_package: Package = null
 
 
 ## Sets desired package

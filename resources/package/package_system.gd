@@ -57,6 +57,10 @@ func _restock_packages():
 ## Adds packages to recipients
 func _add_to_recipient():
 	for i in recipients.size():
+		## Skips if recipient already has desired package
+		if recipients[i].desired_package != null:
+			continue
+			
 		recipients[i].call_for_package(package_to_deliver[i])
 	
 	
@@ -65,10 +69,26 @@ func _add_to_truck():
 	truck.store(package_to_deliver.pick_random())
 	
 	
-## Generates new package and add it to truck and a randomized recipient
+## Generates new package and add it to truck and recipients
 func prepare_delivery():
 	_restock_packages()
 	
 	_add_to_recipient()
 	
 	_add_to_truck()
+
+
+## Called whenever a package has been successfully delivered
+func _on_player_package_delivered(package: Package):
+	## Search for the delivered package inside package's queue
+	for i in package_to_deliver.size():
+		if package_to_deliver[i] == package:
+			## Free current package object and sets it to null
+			package_to_deliver[i].free()
+			package_to_deliver[i] = null
+			
+			## Removes the respective recipient's desired package
+			recipients[i].desired_package = null
+			
+	## Begin to prepare another delivery
+	prepare_delivery()
