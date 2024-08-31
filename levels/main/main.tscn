@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcplpg1s4o2ah"]
+[gd_scene load_steps=6 format=3 uid="uid://bcplpg1s4o2ah"]
 
 [ext_resource type="PackedScene" uid="uid://cloe6wr0xkn54" path="res://resources/map/map.tscn" id="1_wfnbh"]
 [ext_resource type="PackedScene" uid="uid://bvnubxrmlfwdx" path="res://resources/rain_particles/rain.tscn" id="2_d2ddc"]
 [ext_resource type="PackedScene" uid="uid://gi86s1w4q3it" path="res://resources/player/player.tscn" id="2_ssq52"]
+[ext_resource type="Script" path="res://resources/package/package_system.gd" id="3_4c8ij"]
+[ext_resource type="PackedScene" uid="uid://bi0dioytjxbpq" path="res://resources/truck/truck.tscn" id="4_cpaxk"]
 
 [node name="Main" type="Node2D"]
 
@@ -10,5 +12,11 @@
 
 [node name="Rain" parent="Map" instance=ExtResource("2_d2ddc")]
 
+[node name="PackageSystem" type="Node" parent="."]
+script = ExtResource("3_4c8ij")
+
+[node name="Truck" parent="PackageSystem" instance=ExtResource("4_cpaxk")]
+position = Vector2(316, 462)
+
 [node name="Player" parent="." instance=ExtResource("2_ssq52")]
-position = Vector2(180, 314)
+position = Vector2(305, 497)

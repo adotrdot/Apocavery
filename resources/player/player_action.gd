@@ -12,6 +12,12 @@ const ROTATIONS = {
 }
 
 
+## Handles input
+func handle_input():
+	if Input.is_action_just_pressed("pickup"):
+		self.pickup()
+
+
 ## Sets action collision rotation based on direction
 func change_rotation(direction: Vector2):
 	## Ignore if direction is (0,0)
@@ -19,3 +25,13 @@ func change_rotation(direction: Vector2):
 		return
 		
 	self.set_rotation(deg_to_rad(ROTATIONS[direction]))
+	
+	
+## Picks up package from truck
+func pickup():
+	## Checks if area overlaps with truck
+	for area in self.get_overlapping_areas():
+		if area.name == "PackageArea":
+			## Gets package from truck
+			var package: Package = area.get_parent().stored_package
+			self.get_parent().cur_package = package

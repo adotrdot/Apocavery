@@ -8,6 +8,15 @@ extends CharacterBody2D
 ## Holds character's movement class
 var movement: PlayerMovement
 
+## Holds character's actions
+@onready var action = $ActionCollisionArea
+
+## Holds character's animation
+@onready var anim = $AnimatedSprite2D
+
+## Holds the package that's the character's carrying
+var cur_package: Package = null
+
 func _ready():
 	## Instantiate character's movement
 	self.movement = PlayerMovement.new(self.speed)
@@ -18,13 +27,19 @@ func _physics_process(delta):
 	var direction = self.movement.get_input()
 	
 	## Change sprite's animation
-	$AnimatedSprite2D.change_state(direction)
+	anim.change_state(direction)
 	
 	## Rotate sprite's action collision
-	$ActionCollisionArea.change_rotation(direction)
+	action.change_rotation(direction)
 	
 	## Sets velocity
 	self.velocity = self.movement.get_input() * self.speed
 	
 	## Moves character
 	self.move_and_slide()
+
+
+func _process(delta):
+	## Handle user's input relating to character's actions
+	action.handle_input()
+	print(self.cur_package.type if self.cur_package != null else "Empty")
