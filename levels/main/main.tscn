@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rabb4ukvpiyj" path="res://resources/interfaces/gameplay/gameplay_interface.tscn" id="11_cgnxc"]
 
 [node name="Main" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_eba6e")
 
 [node name="Map" parent="." instance=ExtResource("1_wfnbh")]
@@ -41,6 +42,7 @@ position = Vector2(1016, 87)
 position = Vector2(305, 497)
 
 [node name="GameplayInterface" parent="." instance=ExtResource("11_cgnxc")]
+process_mode = 3
 
 [node name="Timer" type="Timer" parent="."]
 

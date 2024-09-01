@@ -33,7 +33,7 @@ func get_input():
 	## check to see if a key has been released, and if so, we
 	## want to remove it from the key_records array
 	for direction in MOVEMENTS.keys():
-		if Input.is_action_just_released(direction):
+		if not Input.is_action_pressed(direction):
 			var index = key_records.find(direction)
 			if index != -1:
 				key_records.remove_at(index)

@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://tc6lw3y6e5kt"]
+
+[ext_resource type="Theme" uid="uid://cuttwwca07hfh" path="res://theme.tres" id="1_80b00"]
+[ext_resource type="Script" path="res://resources/interfaces/gameover/gameover.gd" id="1_pqxjb"]
+
+[node name="Gameover" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqxjb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.368627)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -107.0
+offset_right = 310.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameoverText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_80b00")
+text = "~ GAME OVER ~
+(Press ENTER to go back to main menu)
+Your score is :"
+horizontal_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_80b00")
+horizontal_alignment = 1
