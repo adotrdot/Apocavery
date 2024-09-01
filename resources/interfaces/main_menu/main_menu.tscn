@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv5durel7yxcg"]
+
+[ext_resource type="Script" path="res://resources/interfaces/main_menu/main_menu.gd" id="1_f0qei"]
+[ext_resource type="Texture2D" uid="uid://d12ei34knl3f3" path="res://resources/interfaces/main_menu/main_menu_bg_0.png" id="1_ocotj"]
+[ext_resource type="PackedScene" uid="uid://bvnubxrmlfwdx" path="res://resources/rain_particles/rain.tscn" id="2_dsums"]
+[ext_resource type="Texture2D" uid="uid://7scer6drevkj" path="res://resources/interfaces/main_menu/main_menu_bg_1.png" id="2_qdmjs"]
+[ext_resource type="Texture2D" uid="uid://dia1arh5y68ne" path="res://resources/interfaces/main_menu/title.png" id="4_kuqdi"]
+[ext_resource type="Theme" uid="uid://cuttwwca07hfh" path="res://theme.tres" id="5_0525l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f0qei")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -240.0
+offset_right = 1415.0
+offset_bottom = 720.0
+texture = ExtResource("1_ocotj")
+
+[node name="Rain" parent="." instance=ExtResource("2_dsums")]
+
+[node name="FG" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -231.0
+offset_right = 1424.0
+offset_bottom = 720.0
+texture = ExtResource("2_qdmjs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.270588)
+
+[node name="Title" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 38.0
+offset_top = 34.0
+offset_right = 738.0
+offset_bottom = 194.0
+texture = ExtResource("4_kuqdi")
+
+[node name="ScoreContainer" type="HBoxContainer" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_right = 1.0
+offset_left = -209.0
+offset_bottom = 51.0
+grow_horizontal = 0
+
+[node name="HighScoreText" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme = ExtResource("5_0525l")
+text = "High Score : "
+
+[node name="HighScoreValue" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme = ExtResource("5_0525l")
+
+[node name="TitleText" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 222.0
+offset_top = 467.0
+offset_right = 618.0
+offset_bottom = 518.0
+theme = ExtResource("5_0525l")
+text = "~ Press ENTER to begin ~"
+horizontal_alignment = 1
