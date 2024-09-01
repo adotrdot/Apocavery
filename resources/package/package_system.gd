@@ -42,7 +42,7 @@ func _ready():
 
 ## Creates new randomized package
 func _generate_new_package() -> Package:
-	var type: int = [Package.RED, Package.BLUE, Package.GREEN].pick_random()
+	var type: int = [Package.RED, Package.BLUE, Package.BROWN].pick_random()
 	return Package.new(type)
 	
 	

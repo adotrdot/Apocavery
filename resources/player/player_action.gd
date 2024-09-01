@@ -46,7 +46,7 @@ func pickup(truck: Node2D):
 	
 	## Emit package change signal
 	if parent.cur_package != null:
-		parent.package_change.emit(parent.cur_package)
+		parent.package_changed.emit(parent.cur_package)
 
 
 ## Delivers package to recipient

@@ -17,6 +17,9 @@ func _ready():
 	ScoreSystem.reset_score()
 	interface.set_score(ScoreSystem.current_score)
 	
+	## Sets initial package icon
+	interface.set_package_icon(null)
+	
 	## Sets timer and starts it
 	interface.set_time(gameplay_time)
 	timer.set_one_shot(false)
@@ -31,5 +34,14 @@ func _on_timer_timeout():
 
 ## Updates score UI on successful package delivery
 func _on_player_package_delivered(package):
+	## Resets package icon
+	interface.set_package_icon(null)
+	
+	## Increment score
 	ScoreSystem.current_score += 1
 	interface.set_score(ScoreSystem.current_score)
+
+
+## Updates package holder's icon on package pickup
+func _on_player_package_changed(package):
+	interface.set_package_icon(package)

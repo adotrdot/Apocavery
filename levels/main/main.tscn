@@ -44,6 +44,7 @@ position = Vector2(305, 497)
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="package_changed" from="Player" to="." method="_on_player_package_changed"]
 [connection signal="package_delivered" from="Player" to="." method="_on_player_package_delivered"]
 [connection signal="package_delivered" from="Player" to="PackageSystem" method="_on_player_package_delivered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

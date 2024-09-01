@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://rabb4ukvpiyj"]
+[gd_scene load_steps=4 format=3 uid="uid://rabb4ukvpiyj"]
 
 [ext_resource type="Script" path="res://resources/interfaces/gameplay/gameplay_interface.gd" id="1_1pddp"]
 [ext_resource type="Theme" uid="uid://cuttwwca07hfh" path="res://theme.tres" id="1_mf5l2"]
+[ext_resource type="PackedScene" uid="uid://bg1kiy7ukg6v7" path="res://resources/interfaces/gameplay/package_holder.tscn" id="3_nbox0"]
 
 [node name="GameplayInterface" type="CanvasLayer"]
 script = ExtResource("1_1pddp")
@@ -45,3 +46,11 @@ text = "Time Left : "
 [node name="TimeValue" type="Label" parent="Control/VBoxContainer/TimeContainer"]
 layout_mode = 2
 theme = ExtResource("1_mf5l2")
+
+[node name="PackageHolder" parent="." instance=ExtResource("3_nbox0")]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.75
+anchor_right = 0.2
+grow_horizontal = 1
+grow_vertical = 0
