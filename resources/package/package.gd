@@ -14,6 +14,16 @@ enum {
 ## Stores the type of current package
 var type: int
 
+## Stores each packages' texture
+static var red_package: Texture2D = preload("res://resources/package/red_package.png")
+static var blue_package: Texture2D = preload("res://resources/package/blue_package.png")
+static var brown_package: Texture2D = preload("res://resources/package/brown_package.png")
+static var PACKAGE_TEXTURES = {
+	self.RED: red_package,
+	self.BLUE: blue_package,
+	self.BROWN: brown_package
+}
+
 
 func _init(type: int):
 	## Handle wrong type of package

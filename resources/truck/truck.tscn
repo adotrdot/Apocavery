@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi0dioytjxbpq"]
+[gd_scene load_steps=5 format=3 uid="uid://bi0dioytjxbpq"]
 
 [ext_resource type="Texture2D" uid="uid://pbk2f8kklxhr" path="res://resources/truck/white_truck.png" id="1_2sya4"]
 [ext_resource type="Script" path="res://resources/truck/truck.gd" id="1_6hxct"]
+[ext_resource type="PackedScene" uid="uid://dfcuiuxis3cna" path="res://resources/package/package_notifier.tscn" id="3_b8x18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_japl8"]
 size = Vector2(20, 16)
@@ -25,3 +26,6 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TruckPackageArea"]
 position = Vector2(40, -7)
 shape = SubResource("RectangleShape2D_japl8")
+
+[node name="PackageNotifier" parent="." instance=ExtResource("3_b8x18")]
+position = Vector2(21, -31)

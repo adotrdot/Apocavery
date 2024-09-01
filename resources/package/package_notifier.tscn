@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfcuiuxis3cna"]
+
+[ext_resource type="Script" path="res://resources/package/package_notifier.gd" id="1_j1ack"]
+[ext_resource type="Texture2D" uid="uid://dc8d3qdgnn7x0" path="res://resources/package/package_notifier_icon.png" id="1_mp48m"]
+[ext_resource type="Texture2D" uid="uid://bb76abdt5q8vi" path="res://resources/package/blue_package.png" id="2_4gs2j"]
+
+[node name="PackageNotifier" type="Node2D"]
+script = ExtResource("1_j1ack")
+
+[node name="NotifierIcon" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_mp48m")
+
+[node name="PackageIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_4gs2j")

@@ -16,3 +16,6 @@ layer_0/tile_data = PackedInt32Array(0, 917504, 16, 65536, 917504, 17, 131072, 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RecipientPackageArea" index="0"]
 position = Vector2(48, 170)
 shape = SubResource("RectangleShape2D_bjccq")
+
+[node name="PackageNotifier" parent="." index="3"]
+position = Vector2(48, 137)

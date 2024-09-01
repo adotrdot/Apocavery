@@ -87,8 +87,6 @@ func _on_player_package_delivered(package: Package):
 			package_to_deliver[i].free()
 			package_to_deliver[i] = null
 			
-			## Removes the respective recipient's desired package
-			recipients[i].desired_package = null
-			
-	## Begin to prepare another delivery
+	## Wait 3 seconds and begin to prepare another delivery
+	await get_tree().create_timer(1.0).timeout
 	prepare_delivery()

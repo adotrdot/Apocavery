@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp321bw71tk4c"]
+[gd_scene load_steps=4 format=3 uid="uid://dp321bw71tk4c"]
 
 [ext_resource type="Script" path="res://resources/recipients/recipient.gd" id="1_8v6iw"]
 [ext_resource type="TileSet" uid="uid://bsrug1l1o8v2e" path="res://resources/map/tilemap.tres" id="1_daibe"]
+[ext_resource type="PackedScene" uid="uid://dfcuiuxis3cna" path="res://resources/package/package_notifier.tscn" id="3_1o070"]
 
 [node name="BaseRecipient" type="Node2D"]
 script = ExtResource("1_8v6iw")
@@ -15,3 +16,5 @@ format = 2
 
 [node name="RecipientPackageArea" type="Area2D" parent="."]
 collision_layer = 4
+
+[node name="PackageNotifier" parent="." instance=ExtResource("3_1o070")]
