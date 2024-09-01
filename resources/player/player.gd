@@ -50,4 +50,3 @@ func _physics_process(delta):
 func _process(delta):
 	## Handle user's input relating to character's actions
 	action.handle_input()
-	print(self.cur_package.type if self.cur_package != null else "Empty")

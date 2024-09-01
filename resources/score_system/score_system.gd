@@ -14,27 +14,21 @@ var is_ready = false
 
 
 func _ready():
-	self._open_high_score_file()
 	high_score = self.get_high_score()
 	
 	self.is_ready = true
 	
 	
-## Opens the corresponding file that holds the high score value
-func _open_high_score_file() -> FileAccess:
-	return FileAccess.open(path, FileAccess.WRITE_READ)
-
-	
 ## Saves high score to file
 func _save_high_score_to_file():
-	var file: FileAccess = _open_high_score_file()
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	file.store_32(self.high_score)
 	file.close()
 
 	
 ## Reads score file, gets the high score and returns it
 func get_high_score() -> int:
-	var file: FileAccess = _open_high_score_file()
+	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	
 	## Ignore file if it's still empty
 	if file.get_length() == 0:

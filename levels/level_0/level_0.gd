@@ -91,8 +91,11 @@ func _resume_game():
 	pause_screen = null
 	
 	
-## Back to main menu from paused state
+## Back to main menu from paused/gameover state
 func _back_to_main_menu():
+	## Saves high score before continuing
+	ScoreSystem.save_high_score(ScoreSystem.current_score)
+	self.get_tree().paused = false
 	self.to_main_menu.emit()
 
 
