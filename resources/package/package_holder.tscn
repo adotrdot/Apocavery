@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg1kiy7ukg6v7"]
+[gd_scene load_steps=3 format=3 uid="uid://br8bgx2bpxm5s"]
 
-[ext_resource type="Texture2D" uid="uid://lqla0u6itrek" path="res://resources/interfaces/gameplay/package_holder.png" id="1_7ggpm"]
-[ext_resource type="Script" path="res://resources/interfaces/gameplay/package_holder.gd" id="1_sudd5"]
+[ext_resource type="Texture2D" uid="uid://lqla0u6itrek" path="res://resources/package/package_holder.png" id="1_7ggpm"]
+[ext_resource type="Script" path="res://resources/package/package_holder.gd" id="1_yb1do"]
 
 [node name="PackageHolder" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sudd5")
+script = ExtResource("1_yb1do")
 
 [node name="Holder" type="TextureRect" parent="."]
 layout_mode = 0

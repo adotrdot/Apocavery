@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/interfaces/gameplay/gameplay_interface.gd" id="1_1pddp"]
 [ext_resource type="Theme" uid="uid://cuttwwca07hfh" path="res://theme.tres" id="1_mf5l2"]
-[ext_resource type="PackedScene" uid="uid://bg1kiy7ukg6v7" path="res://resources/interfaces/gameplay/package_holder.tscn" id="3_nbox0"]
+[ext_resource type="PackedScene" uid="uid://br8bgx2bpxm5s" path="res://resources/package/package_holder.tscn" id="3_62xgi"]
 
 [node name="GameplayInterface" type="CanvasLayer"]
 script = ExtResource("1_1pddp")
@@ -47,10 +47,10 @@ text = "Time Left : "
 layout_mode = 2
 theme = ExtResource("1_mf5l2")
 
-[node name="PackageHolder" parent="." instance=ExtResource("3_nbox0")]
+[node name="PackageHolder" parent="." instance=ExtResource("3_62xgi")]
 anchors_preset = -1
-anchor_left = 0.03
+anchor_left = 0.05
 anchor_top = 0.75
-anchor_right = 0.2
+anchor_right = 0.1
 grow_horizontal = 1
 grow_vertical = 0
