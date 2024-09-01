@@ -15,6 +15,10 @@ run/main_scene="res://levels/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreSystem="*res://resources/score_system/score_system.gd"
+
 [display]
 
 window/size/viewport_width=1280

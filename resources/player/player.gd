@@ -17,7 +17,12 @@ var movement: PlayerMovement
 ## Holds the package that's the character's carrying
 var cur_package: Package = null
 
-## Signal for whenever a package is successfully delivered
+## Signal for whenever the package the player's carrying is changed.
+## Emitted by PlayerAction when needed.
+signal package_changed(package: Package)
+
+## Signal for whenever a package is successfully delivered.
+## Emitted by PlayerAction when needed.
 signal package_delivered(package: Package)
 
 func _ready():

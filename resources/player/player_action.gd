@@ -39,8 +39,14 @@ func change_rotation(direction: Vector2):
 	
 ## Picks up package from truck
 func pickup(truck: Node2D):
+	var parent = self.get_parent()
+	
 	## Gets package from truck
-	self.get_parent().cur_package = truck.stored_package
+	parent.cur_package = truck.stored_package
+	
+	## Emit package change signal
+	if parent.cur_package != null:
+		parent.package_change.emit(parent.cur_package)
 
 
 ## Delivers package to recipient

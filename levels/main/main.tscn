@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcplpg1s4o2ah"]
+[gd_scene load_steps=12 format=3 uid="uid://bcplpg1s4o2ah"]
 
+[ext_resource type="Script" path="res://levels/main/main.gd" id="1_eba6e"]
 [ext_resource type="PackedScene" uid="uid://cloe6wr0xkn54" path="res://resources/map/map.tscn" id="1_wfnbh"]
 [ext_resource type="PackedScene" uid="uid://bvnubxrmlfwdx" path="res://resources/rain_particles/rain.tscn" id="2_d2ddc"]
 [ext_resource type="PackedScene" uid="uid://gi86s1w4q3it" path="res://resources/player/player.tscn" id="2_ssq52"]
@@ -9,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dejn25vg1txc7" path="res://resources/recipients/recipient_2.tscn" id="6_ehe4k"]
 [ext_resource type="PackedScene" uid="uid://cpi16tcmmpbpa" path="res://resources/recipients/recipient_3.tscn" id="7_oqkwn"]
 [ext_resource type="PackedScene" uid="uid://ckscjjqk0xmuq" path="res://resources/recipients/recipient_4.tscn" id="8_bomhh"]
+[ext_resource type="PackedScene" uid="uid://rabb4ukvpiyj" path="res://resources/interfaces/gameplay/gameplay_interface.tscn" id="11_cgnxc"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_eba6e")
 
 [node name="Map" parent="." instance=ExtResource("1_wfnbh")]
 
@@ -37,4 +40,10 @@ position = Vector2(1016, 87)
 [node name="Player" parent="." instance=ExtResource("2_ssq52")]
 position = Vector2(305, 497)
 
+[node name="GameplayInterface" parent="." instance=ExtResource("11_cgnxc")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="package_delivered" from="Player" to="." method="_on_player_package_delivered"]
 [connection signal="package_delivered" from="Player" to="PackageSystem" method="_on_player_package_delivered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
